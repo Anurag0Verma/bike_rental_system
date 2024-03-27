@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BikeRentalSystem.dashboardController">
+    <children>
+        <AnchorPane fx:id="main_form" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <BorderPane layoutX="231.0" layoutY="138.0" prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <top>
+                        <AnchorPane prefHeight="45.0" prefWidth="200.0" styleClass="semi-top-form" stylesheets="@dashboardDesign.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutX="-3.0" prefHeight="35.0" prefWidth="1100.0" styleClass="top-form" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <ImageView fitHeight="42.0" fitWidth="36.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@bikeicon.png" />
+                                            </image></ImageView>
+                                        <Label layoutX="65.0" layoutY="10.0" text="Bike Rental System">
+                                            <font>
+                                                <Font name="Tahoma" size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <Button fx:id="close" layoutX="1034.0" layoutY="10.0" mnemonicParsing="false" onAction="#close" prefHeight="31.0" prefWidth="62.0" styleClass="close" stylesheets="@dashboardDesign.css" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.7em" />
+                                            </graphic>
+                                        </Button>
+                                        <Button fx:id="minimize" layoutX="993.0" layoutY="2.0" mnemonicParsing="false" onAction="#minimize" prefHeight="31.0" prefWidth="43.0" styleClass="minus-box" stylesheets="@dashboardDesign.css">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="MINUS" size="1.2em" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </top>
+                    <left>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane layoutY="126.0" prefHeight="555.0" prefWidth="200.0" stylesheets="@dashboardDesign.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="62.0" layoutY="122.0" size="7em" />
+                                        <Label layoutX="58.0" layoutY="143.0" text="Welcome" textFill="WHITE">
+                                            <font>
+                                                <Font name="Tahoma" size="17.0" />
+                                            </font>
+                                        </Label>
+                                        <Label fx:id="username" alignment="CENTER" layoutY="171.0" prefHeight="35.0" prefWidth="199.0" text="User Name" textFill="WHITE">
+                                            <font>
+                                                <Font name="Arial Bold" size="20.0" />
+                                            </font>
+                                        </Label>
+                                        <Line endX="83.5" layoutX="108.0" layoutY="216.0" startX="-100.0" stroke="WHITE" />
+                                        <Button fx:id="home_Btn" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="home-btn" stylesheets="@dashboardDesign.css" text="Home">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="1.5em" />
+                                            </graphic></Button>
+                                        <Button fx:id="logout_Btn" layoutX="8.0" layoutY="503.0" mnemonicParsing="false" onAction="#logout" styleClass="sign-out" stylesheets="@dashboardDesign.css" text="Sign Out" textFill="WHITE">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="SIGN_OUT" size="2.5em" />
+                                            </graphic>
+                                        </Button>
+                                        <Button fx:id="availableBike_Btn" layoutX="10.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Available Bike">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="CHECK" size="1.5em" />
+                                            </graphic>
+                                        </Button>
+                                        <Button fx:id="RentedBikes_Btn" layoutX="10.0" layoutY="350.0" mnemonicParsing="false" onAction="#switchForm" prefHeight="35.0" prefWidth="180.0" styleClass="nav-btn" stylesheets="@dashboardDesign.css" text="Rented Bike">
+                                            <graphic>
+                                                <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" size="1.5em" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                    <styleClass>
+                                        <String fx:value="nav-form" />
+                                        <String fx:value="shadow" />
+                                    </styleClass>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </left>
+                    <center>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <AnchorPane fx:id="home_form" layoutX="-3.0" prefHeight="555.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="16.0" layoutY="9.0" prefHeight="191.0" prefWidth="874.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="nav-form" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <AnchorPane layoutX="13.0" layoutY="15.0" prefHeight="160.0" prefWidth="270.0" stylesheets="@dashboardDesign.css">
+                                                    <children>
+                                                        <ImageView fitHeight="70.0" fitWidth="90.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                                                            <image>
+                                                                <Image url="@bikeicon.png" />
+                                                            </image>
+                                                        </ImageView>
+                                                        <Label layoutX="90.0" layoutY="115.0" text="Available Bike">
+                                                            <font>
+                                                                <Font name="Tahoma" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="home_availableBike" alignment="CENTER_RIGHT" layoutX="112.0" layoutY="19.0" prefHeight="21.0" prefWidth="138.0" text="0">
+                                                            <font>
+                                                                <Font name="Arial Bold" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                    </children>
+                                                    <styleClass>
+                                                        <String fx:value="box3" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="301.0" layoutY="15.0" prefHeight="160.0" prefWidth="270.0" stylesheets="@dashboardDesign.css">
+                                                    <styleClass>
+                                                        <String fx:value="box3" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                    <children>
+                                                        <Label layoutX="99.0" layoutY="111.0" text="Total Income">
+                                                            <font>
+                                                                <Font name="Tahoma" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="home_totalIncome" alignment="CENTER_RIGHT" layoutX="121.0" layoutY="15.0" prefHeight="21.0" prefWidth="138.0" text="₹0.0">
+                                                            <font>
+                                                                <Font name="Arial Bold" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <FontAwesomeIcon glyphName="MONEY" layoutX="14.0" layoutY="101.0" size="5em" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="590.0" layoutY="15.0" prefHeight="160.0" prefWidth="270.0" stylesheets="@dashboardDesign.css">
+                                                    <styleClass>
+                                                        <String fx:value="box3" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                    <children>
+                                                        <Label layoutX="98.0" layoutY="110.0" text="Total Customer">
+                                                            <font>
+                                                                <Font name="Tahoma" size="16.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label fx:id="home_totalCustomer" alignment="CENTER_RIGHT" layoutX="120.0" layoutY="14.0" prefHeight="21.0" prefWidth="138.0" text="0">
+                                                            <font>
+                                                                <Font name="Arial Bold" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <FontAwesomeIcon glyphName="USERS" layoutX="13.0" layoutY="100.0" size="5em" />
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="16.0" layoutY="225.0" prefHeight="329.0" prefWidth="874.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="box3" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <AnchorPane layoutX="13.0" layoutY="10.0" prefHeight="310.0" prefWidth="540.0" stylesheets="@dashboardDesign.css">
+                                                    <styleClass>
+                                                        <String fx:value="white-bg" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                    <children>
+                                                        <BarChart fx:id="home_incomeChart" layoutX="10.0" layoutY="11.0" prefHeight="310.0" prefWidth="547.0" title="Income Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+                                                            <xAxis>
+                                                                <CategoryAxis side="BOTTOM" />
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis side="LEFT" />
+                                                            </yAxis>
+                                                        </BarChart>
+                                                    </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="578.0" layoutY="12.0" prefHeight="308.0" prefWidth="286.0" stylesheets="@dashboardDesign.css">
+                                                    <styleClass>
+                                                        <String fx:value="white-bg" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                    <children>
+                                                        <LineChart fx:id="home_customerChat" layoutX="-120.0" layoutY="-60.0" prefHeight="340.0" prefWidth="380.0" title="Customer Data Chart" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                            <xAxis>
+                                                                <CategoryAxis side="BOTTOM" />
+                                                            </xAxis>
+                                                            <yAxis>
+                                                                <NumberAxis side="LEFT" />
+                                                            </yAxis>
+                                                        </LineChart>
+                                                    </children>
+                                                </AnchorPane>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="available_form" layoutX="46.0" layoutY="26.0" prefHeight="555.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="10.0" layoutY="14.0" prefHeight="217.0" prefWidth="880.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <Label layoutX="26.0" layoutY="26.0" text="Bike ID:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="available_bikeID" layoutX="93.0" layoutY="24.0" prefHeight="27.0" prefWidth="133.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="26.0" layoutY="74.0" text="Brand:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="available_brand" layoutX="93.0" layoutY="72.0" prefHeight="25.0" prefWidth="198.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="26.0" layoutY="120.0" text="Model:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="available_model" layoutX="93.0" layoutY="118.0" prefHeight="25.0" prefWidth="198.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="26.0" layoutY="165.0" text="Status:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="available_status" layoutX="93.0" layoutY="165.0" prefHeight="25.0" prefWidth="194.0" promptText="Choose" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <AnchorPane layoutX="494.0" layoutY="4.0" prefHeight="208.0" prefWidth="200.0" stylesheets="@dashboardDesign.css">
+                                                    <styleClass>
+                                                        <String fx:value="white-bg" />
+                                                        <String fx:value="shadow" />
+                                                    </styleClass>
+                                                    <children>
+                                                        <ImageView fx:id="available_imageView" fitHeight="208.0" fitWidth="201.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+                                                        <Button fx:id="available_importBtn" layoutX="44.0" layoutY="184.0" mnemonicParsing="false" onAction="#availableBikeImportImage" prefHeight="25.0" prefWidth="110.0" text="Import" />
+                                                    </children>
+                                                </AnchorPane>
+                                                <Button fx:id="available_insertBtn" layoutX="709.0" layoutY="67.0" mnemonicParsing="false" onAction="#availableBikeAdd" prefHeight="34.0" prefWidth="69.0" styleClass="insert-btn" stylesheets="@dashboardDesign.css" text="Insert" />
+                                                <Button fx:id="available_updateBtn" layoutX="797.0" layoutY="67.0" mnemonicParsing="false" onAction="#availableBikeUpdate" prefHeight="34.0" prefWidth="69.0" styleClass="update-btn" stylesheets="@dashboardDesign.css" text="Update" />
+                                                <Button fx:id="available_cleanBtn" layoutX="709.0" layoutY="148.0" mnemonicParsing="false" onAction="#availableBikeClear" prefHeight="34.0" prefWidth="69.0" styleClass="clean-btn" stylesheets="@dashboardDesign.css" text="Clean" />
+                                                <Button fx:id="available_deleteBtn" layoutX="797.0" layoutY="148.0" mnemonicParsing="false" onAction="#availableBikeDelete" prefHeight="34.0" prefWidth="69.0" styleClass="delete-btn" stylesheets="@dashboardDesign.css" text="Delete" />
+                                                <Label layoutX="291.0" layoutY="25.0" text="Price:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="available_price" layoutX="335.0" layoutY="23.0" prefHeight="27.0" prefWidth="133.0" promptText="₹0.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="10.0" layoutY="244.0" prefHeight="307.0" prefWidth="880.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <TableView fx:id="available_tableVew" layoutX="6.0" layoutY="42.0" onMouseClicked="#availableBikeSelect" prefHeight="262.0" prefWidth="869.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="available_col_bikeId" prefWidth="97.0" text="Bike ID" />
+                                                        <TableColumn fx:id="available_col_brand" prefWidth="230.0" text="Brand" />
+                                                        <TableColumn fx:id="available_col_model" prefWidth="295.0" text="Model" />
+                                                        <TableColumn fx:id="available_col_price" prefWidth="134.0" text="Price (₹)" />
+                                                        <TableColumn fx:id="available_col_status" prefWidth="112.0" text="Status" />
+                                                    </columns>
+                                                </TableView>
+                                                <TextField fx:id="available_search" layoutX="14.0" layoutY="8.0" onKeyTyped="#availableBikeSearch" prefHeight="25.0" prefWidth="264.0" promptText="Search" styleClass="search" stylesheets="@dashboardDesign.css" />
+                                                <FontAwesomeIcon glyphName="SEARCH" layoutX="22.0" layoutY="25.0" size="1.3em" />
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane fx:id="rent_form" layoutX="202.0" layoutY="152.0" prefHeight="555.0" prefWidth="900.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <children>
+                                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="220.0" prefWidth="880.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <Label layoutX="10.0" layoutY="20.0" text="Bike ID:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="rent_bikeId" layoutX="72.0" layoutY="20.0" prefWidth="150.0" promptText="Choose" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="20.0" layoutY="70.0" text="Brand:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="rent_brand" layoutX="72.0" layoutY="70.0" onAction="#rentBikeBrand" prefWidth="150.0" promptText="Choose" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="20.0" layoutY="120.0" text="Model:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="rent_model" layoutX="72.0" layoutY="120.0" onAction="#rentBikeModel" prefWidth="150.0" promptText="Choose" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="263.0" layoutY="120.0" text="Gender:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <ComboBox fx:id="rent_gender" layoutX="322.0" layoutY="120.0" onAction="#rentBikeGender" prefWidth="150.0" promptText="Choose" />
+                                                <Label layoutX="241.0" layoutY="23.0" text="First Name:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="241.0" layoutY="70.0" text="Last Name:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="rent_firstName" layoutX="327.0" layoutY="20.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <TextField fx:id="rent_lastName" layoutX="327.0" layoutY="70.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="20.0" layoutY="180.0" text="Date Rented:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <DatePicker fx:id="rent_dateRented" layoutX="115.0" layoutY="180.0" prefHeight="25.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="290.0" layoutY="180.0" text="Date Return:">
+                                                    <font>
+                                                        <Font name="Tahoma" size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <DatePicker fx:id="rent_dateReturn" layoutX="385.0" layoutY="180.0" onAction="#rentDisplayTotal" prefHeight="25.0" prefWidth="160.0" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Button fx:id="rentBtn" layoutX="742.0" layoutY="163.0" mnemonicParsing="false" onAction="#rentPay" prefHeight="46.0" prefWidth="109.0" styleClass="rent-btn" stylesheets="@dashboardDesign.css" text="Rent">
+                                                    <font>
+                                                        <Font size="22.0" />
+                                                    </font>
+                                                </Button>
+                                                <Label layoutX="630.0" layoutY="30.0" text="Total:">
+                                                    <font>
+                                                        <Font name="Tahoma Bold" size="22.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="rent_total" layoutX="713.0" layoutY="35.0" prefHeight="0.0" prefWidth="154.0" text="₹0.0">
+                                                    <font>
+                                                        <Font name="Arial" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="600.0" layoutY="70.0" text="Amount:">
+                                                    <font>
+                                                        <Font name="Tahoma Bold" size="22.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="rent_amount" layoutX="710.0" layoutY="70.0" onAction="#rentAmount" styleClass="textfield" stylesheets="@dashboardDesign.css" />
+                                                <Label layoutX="600.0" layoutY="110.0" text="Balance:">
+                                                    <font>
+                                                        <Font name="Tahoma Bold" size="22.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="rent_balance" layoutX="710.0" layoutY="115.0" prefHeight="0.0" prefWidth="154.0" text="₹0.0">
+                                                    <font>
+                                                        <Font name="Arial" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                        <AnchorPane layoutX="10.0" layoutY="258.0" prefHeight="295.0" prefWidth="880.0" stylesheets="@dashboardDesign.css">
+                                            <styleClass>
+                                                <String fx:value="white-bg" />
+                                                <String fx:value="shadow" />
+                                            </styleClass>
+                                            <children>
+                                                <TableView fx:id="rent_table" layoutX="5.0" layoutY="40.0" prefHeight="255.0" prefWidth="870.0">
+                                                    <columns>
+                                                        <TableColumn fx:id="rent_col_bikeID" prefWidth="95.0" text="Bike ID" />
+                                                        <TableColumn fx:id="rent_col_brand" prefWidth="165.0" text="Brand" />
+                                                        <TableColumn fx:id="rent_col_model" prefWidth="400.0" text="Model" />
+                                                        <TableColumn fx:id="rent_col_price" prefWidth="115.0" text="Price" />
+                                                        <TableColumn fx:id="rent_col_status" minWidth="2.0" prefWidth="91.0" text="Status" />
+                                                    </columns>
+                                                </TableView>
+                                                <Label layoutX="10.0" layoutY="5.0" text="Available Bikes">
+                                                    <font>
+                                                        <Font name="Arial Bold" size="30.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>

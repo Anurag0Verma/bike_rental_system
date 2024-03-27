@@ -1,0 +1,43 @@
+.signinAnchor{
+    -fx-background-color: #fff;
+
+}
+.close{
+    -fx-background-color: #000;
+    -fx-cursor: hand;
+}
+.close:hover{
+    -fx-background-color: #ff0000;
+
+}
+.textfield{
+    -fx-background-color: linear-gradient(to bottom,#efefef,#eee);
+    -fx-background-radius: 4px;
+    -fx-border-color: #000;
+    -fx-border-radius: 4px;
+    -fx-border-color: #000;
+    -fx-border-radius: 4px;
+    -fx-border-width: .4px;
+}
+.textfield:focused{
+    -fx-background-color: #fff;
+    -fx-border-color: linear-gradient(to bottom right,#444750,#696d72);
+    -fx-border-width: 1.4px;
+}
+
+.sign-in{
+    -fx-background-color: linear-gradient(to bottom right,#c6c1c1,#fff);
+    -fx-background-radius: 4px;
+    -fx-text-fill: #000;
+    -fx-font-size:14px;
+    -fx-font-family:"Arial";
+    -fx-border-color: #000;
+    -fx-border-radius: 4px;
+    -fx-border-width: .4px;
+    -fx-cursor: hand;
+}
+.sign-in:hover{
+    -fx-background-color: linear-gradient(to bottom left,#000,#545353);
+    -fx-text-fill: #fff;
+}
+
